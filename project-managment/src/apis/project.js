@@ -7,4 +7,8 @@ export default {
     async getProjects() {
         return await utils.sendRequest(Api().get(`${END_POINT}`));
     },
+
+    async getProjectById(id) {
+        return await utils.sendRequest(Api().get(`${END_POINT}/projectByID?projectId=${id}`));
+    },
 };
