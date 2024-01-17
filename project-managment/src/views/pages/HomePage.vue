@@ -92,16 +92,19 @@ export default {
 
   computed: {
     ...mapGetters({
-      weatherList: "test/weatherList",
+      branchList  : "branch/branchList",
+
     }),
   },
   methods: {
     ...mapActions({
-      getWeatherList: "test/getWeatherList",
+      getBranches: "branch/getBranches",
+
     })
   },
   async created() {
-    //await this.getWeatherList();
+    await this.getBranches();
+    console.log(this.branchList)
   },
 };
 </script>
