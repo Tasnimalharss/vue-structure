@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo');
+
+body, table {
+    font-family: 'Cairo' !important;
+}
