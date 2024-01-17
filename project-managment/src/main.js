@@ -1,4 +1,5 @@
 import 'material-dashboard/assets/css/material-dashboard.css';
+import 'material-dashboard/assets/js/core/bootstrap.min.js';
 import 'material-dashboard/assets/css/nucleo-icons.css';
 import './assets/style.css'
 import { createApp } from "vue";
