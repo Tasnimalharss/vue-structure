@@ -1,7 +1,7 @@
 
 
 <template>
-  <VerticalLayout>
+  <VerticalLayout current-page="Test Title2">
     <div class="row">
       <div class="col-12">
         <CardComponent card-title="Test Title2">
