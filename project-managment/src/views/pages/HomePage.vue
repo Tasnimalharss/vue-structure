@@ -51,7 +51,6 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
 import VerticalLayout from '@/views/layouts/VerticalLayout';
 import CardComponent from '@/components/elements/CardComponent';
 import ModalComponent from '@/components/elements/ModalComponent';
@@ -88,23 +87,6 @@ export default {
         },
       ]
     };
-  },
-
-  computed: {
-    ...mapGetters({
-      branchList  : "branch/branchList",
-
-    }),
-  },
-  methods: {
-    ...mapActions({
-      getBranches: "branch/getBranches",
-
-    })
-  },
-  async created() {
-    await this.getBranches();
-    console.log(this.branchList)
   },
 };
 </script>
