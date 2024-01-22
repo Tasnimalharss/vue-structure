@@ -11,8 +11,8 @@ export const mutations = {
 };
 
 export const actions = {
-    async getCommits({commit }) {
-        await COMMIT.getCommits().then(response => {
+    async getCommits({commit },object) {
+        await COMMIT.getCommits(object).then(response => {
             if(response.data.type === 1)
             {
                 commit('SET_COMMIT_LIST', response.data.content)
