@@ -4,7 +4,7 @@ import utils from "./utils";
 const END_POINT = 'Commit';
 
 export default {
-    async getCommits() {
-        return await utils.sendRequest(Api().get(`${END_POINT}`));
+    async getCommits(object ) {
+        return await utils.sendRequest(Api().get(`${END_POINT}?projectId=${object.projectId}&name=${object.branchName}`));
     },
 };

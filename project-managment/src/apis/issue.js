@@ -7,4 +7,7 @@ export default {
     async getIssues() {
         return await utils.sendRequest(Api().get(`${END_POINT}`));
     },
+    async getIssueByProjectId(projectId) {
+        return await utils.sendRequest(Api().get(`${END_POINT}/GetIssueById?projectId=${projectId}`));
+    },
 };

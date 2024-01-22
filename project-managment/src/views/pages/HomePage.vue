@@ -1,10 +1,10 @@
 
 
 <template>
-  <VerticalLayout current-page="Test Title2">
+  <VerticalLayout current-page="Home">
     <div class="row">
       <div class="col-12">
-        <CardComponent card-title="Test Title2">
+        <!-- <CardComponent card-title="Test Title2">
           <div class="table-responsive p-0">
             <table class="table align-items-center mb-0">
               <thead>
@@ -44,7 +44,7 @@
               </tbody>
             </table>
           </div>
-        </CardComponent>
+        </CardComponent> -->
       </div>
     </div>
   </VerticalLayout>
@@ -52,14 +52,16 @@
 
 <script>
 import VerticalLayout from '@/views/layouts/VerticalLayout';
-import CardComponent from '@/components/elements/CardComponent';
-import ModalComponent from '@/components/elements/ModalComponent';
+
+// import CardComponent from '@/components/elements/CardComponent';
+// import ModalComponent from '@/components/elements/ModalComponent';
 
 //import TableComponent from '@/components/tables/TableComponent';
 
 export default {
   components: {
-    VerticalLayout, CardComponent,ModalComponent
+    VerticalLayout, 
+    // CardComponent,ModalComponent
   },
   data() {
     return {
