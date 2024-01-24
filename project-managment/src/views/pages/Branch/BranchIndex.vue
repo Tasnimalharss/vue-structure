@@ -1,7 +1,7 @@
 
 
 <template>
-    <VerticalLayout current-page="Branch">
+    <VerticalLayout current-page="Branchs">
       <div class="row">
         <div class="col-12 ">
           <div class="col-lg-12 pb-1">

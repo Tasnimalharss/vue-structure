@@ -1,7 +1,7 @@
 
 
 <template>
-  <VerticalLayout current-page="Commit">
+  <VerticalLayout current-page="Commits">
     <div class="row">
       <div class="col-12">
         <div class="card my-4 ">
@@ -53,6 +53,7 @@
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Title</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Author Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Authored Date</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Created At</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Commited Date</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Message</th>
@@ -71,7 +72,7 @@
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">{{ commit.authorName }}</h6>
+                        <h6 class="mb-0 text-sm">{{ commit.author_name }}</h6>
                       </div>
                     </div>
                   </td>
@@ -79,7 +80,7 @@
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">{{ commit.createdAt }}</h6>
+                        <h6 class="mb-0 text-sm">{{ dateTime(commit.authored_date) }}</h6>
                       </div>
                     </div>
                   </td>
@@ -87,7 +88,15 @@
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">{{ commit.committedDate }}</h6>
+                        <h6 class="mb-0 text-sm">{{ dateTime(commit.committed_date)}}</h6>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>
+                    <div class="d-flex px-2 py-1">
+                      <div class="d-flex flex-column justify-content-center">
+                        <h6 class="mb-0 text-sm">{{ dateTime(commit.committed_date)}}</h6>
                       </div>
                     </div>
                   </td>
@@ -114,6 +123,8 @@ import VerticalLayout from '@/views/layouts/VerticalLayout';
 import CardComponent from '@/components/elements/CardComponent';
 // import ModalComponent from '@/components/elements/ModalComponent';
 import { mapActions, mapGetters } from "vuex";
+import moment from 'moment';
+
 
 //import TableComponent from '@/components/tables/TableComponent';
 
@@ -151,6 +162,9 @@ export default {
         branchName : branchName
       };
       await this.getCommits(object)
+    },
+    dateTime(value) {
+      return moment(value).format('YYYY/MM/DD HH:MM');
     },
   },
   async created() {

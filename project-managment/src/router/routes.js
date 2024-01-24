@@ -37,7 +37,7 @@ export default [
       component: () => import("@/views/pages/Issue/IssueIndex"),
     },
     {
-      path: '/issue/view/:id',
+      path: '/issue/view/:projectId/:issueId',
       name: 'viewIssue',
       props: true,
       component: () => import('@/views/pages/Issue/IssueView'),

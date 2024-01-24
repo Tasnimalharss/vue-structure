@@ -9,6 +9,6 @@ export default {
     },
 
     async getProjectById(id) {
-        return await utils.sendRequest(Api().get(`${END_POINT}/projectByID?projectId=${id}`));
+        return await utils.sendRequest(Api().get(`${END_POINT}/GetProjectsByprojectId?projectId=${id}`));
     },
 };

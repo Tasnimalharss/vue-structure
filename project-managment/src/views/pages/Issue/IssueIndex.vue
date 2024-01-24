@@ -1,7 +1,7 @@
 
 
 <template>
-  <VerticalLayout current-page="Issue">
+  <VerticalLayout current-page="Issues">
     <div class="row">
       <div class="col-12">
         <div class="card my-4 ">
@@ -12,7 +12,7 @@
                 class="form-select"
                 id="project"
                 v-model="projectId"
-                @change="getIssueByProjectId($event.target.value)" >
+                @change="getIssuesByProjectId($event.target.value)" >
               <option
                   v-for="item in projectList"
                   :key="item.id"
@@ -86,11 +86,11 @@
                   </td>
                   <td>
                       <div class="d-flex px-2 py-1">
-                        <div class="d-flex flex-column justify-content-center" v-if="projectId">
+                        <div class="d-flex flex-column justify-content-center" v-if="projectId && issueListByProjectId?.length >=1">
                           <span class="mb-0 me-3" >
-                            <!-- <router-link class="text-primary" :to="{ name: 'viewBranch',params: { projectId: projectId , brancName :branch.name}, }" >   
+                            <router-link class="text-primary" :to="{ name: 'viewIssue',params: { projectId: projectId , issueId :issue.iid}, }" >   
                                  <i class="material-icons opacity-10 text-xl">info</i>
-                            </router-link> -->
+                            </router-link>
                           </span>
                         </div>
                       </div>
@@ -135,7 +135,7 @@ export default {
   methods: {
     ...mapActions({
       getProjects: "project/getProjects",
-      getIssueByProjectId: "issue/getIssueByProjectId",
+      getIssuesByProjectId: "issue/getIssuesByProjectId",
     }),
     dateTime(value) {
       return moment(value).format('YYYY/MM/DD');
