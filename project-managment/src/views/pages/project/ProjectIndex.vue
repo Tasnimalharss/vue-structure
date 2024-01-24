@@ -1,7 +1,7 @@
 
 
 <template>
-    <VerticalLayout current-page="Project">
+    <VerticalLayout current-page="Projects">
       <div class="row" v-if="projectList!=null">
           <div  class="col-lg-4 col-md-6" v-for="item in projectList" :key="item.id">
             <CardComponent :card-title="item.name">

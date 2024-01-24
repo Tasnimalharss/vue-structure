@@ -11,6 +11,6 @@ export default {
         return await utils.sendRequest(Api().get(`${END_POINT}/GetBrancheByProjectId?projectID=${id}`));
     },
     async getBranchByName(object) {
-        return await utils.sendRequest(Api().get(`${END_POINT}/GetBranchByName?projectId=${object.projectId}&BranchName=${object.brancName}`));
+        return await utils.sendRequest(Api().get(`${END_POINT}/GetBranchByBranchName?projectId=${object.projectId}&BranchName=${object.brancName}`));
     },
 };

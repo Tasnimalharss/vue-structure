@@ -27,7 +27,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">tungsten</i>
                         </div>
-                        <span class="nav-link-text ms-1">Project</span>
+                        <span class="nav-link-text ms-1">Projects</span>
                     </router-link>    
                 </li>
                 <li class="nav-item">
@@ -35,7 +35,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">account_tree</i>
                         </div>
-                        <span class="nav-link-text ms-1">Branch</span>
+                        <span class="nav-link-text ms-1">Branchs</span>
                     </router-link>    
                 </li>
                 <li class="nav-item">
@@ -43,7 +43,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">code</i>
                         </div>
-                        <span class="nav-link-text ms-1">Commit</span>
+                        <span class="nav-link-text ms-1">Commits</span>
                     </router-link>    
                 </li>
                 <li class="nav-item">
@@ -51,7 +51,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">bug_report</i>
                         </div>
-                        <span class="nav-link-text ms-1">Issue</span>
+                        <span class="nav-link-text ms-1">Issues</span>
                     </router-link>    
                 </li>
                 <!-- <li class="nav-item">
