@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse w-auto ps" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <router-link class="nav-link text-white active bg-gradient-primary" to="/">  
+                    <router-link  active-class="active bg-gradient-primary"  class="nav-link text-white" to="/">  
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
                         </div>
@@ -23,7 +23,7 @@
                     </router-link>    
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link text-white" to="/project">  
+                    <router-link   active-class="active bg-gradient-primary" class="nav-link text-white" to="/project">  
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">tungsten</i>
                         </div>
@@ -31,7 +31,7 @@
                     </router-link>    
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link text-white" to="/branch">  
+                    <router-link  active-class="active bg-gradient-primary"  class="nav-link text-white" to="/branch">  
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">account_tree</i>
                         </div>
@@ -39,7 +39,7 @@
                     </router-link>    
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link text-white" to="/commit">  
+                    <router-link  active-class="active bg-gradient-primary"  class="nav-link text-white" to="/commit">  
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">code</i>
                         </div>
@@ -47,7 +47,7 @@
                     </router-link>    
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link text-white" to="/issue">  
+                    <router-link  active-class="active bg-gradient-primary"  class="nav-link text-white" to="/issue">  
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">bug_report</i>
                         </div>

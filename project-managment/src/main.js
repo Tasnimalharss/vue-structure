@@ -2,6 +2,7 @@ import 'material-dashboard/assets/scss/material-dashboard.scss';
 import 'material-dashboard/assets/js/core/bootstrap.min.js';
 import 'material-dashboard/assets/js/material-dashboard.min.js';
 import './assets/scss/variables.scss'
+import './assets/style.css'
 
 import 'material-dashboard/assets/css/nucleo-icons.css';
 import { createApp } from "vue";

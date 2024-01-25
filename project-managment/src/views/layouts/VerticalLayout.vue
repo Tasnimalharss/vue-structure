@@ -2,9 +2,9 @@
 <template>
     <div>
         <SideBar />
-        <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ps ps--active-y">
+        <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg  ps ps--active-y">
             <NavBar :current-page="currentPage"  />
-            <div class="container-fluid py-4">
+            <div class="container-fluid px-4 py-4">
                     <slot />
                     <FooterBar/>
             </div>
