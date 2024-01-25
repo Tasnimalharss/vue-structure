@@ -1,11 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo');
+@import url('https://fonts.googleapis.com/css?family=Cairo');
 
-body, table {
+body,
+table {
     font-family: 'Cairo' !important;
 }
 
-h1, h2, h3, h4, h5, h6 { font-family: Cairo !important;}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Cairo !important;
+}
 
-.form-select{
+.form-select {
     border-color: #d2d6da !important;
+}
+
+.nav-link,
+h6,
+h5 {
+    letter-spacing: 1px;
+}
+
+
+
+.nav-link {
+    font-size: 1rem !important;
 }

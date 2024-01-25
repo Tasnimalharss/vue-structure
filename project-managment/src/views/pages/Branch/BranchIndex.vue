@@ -1,11 +1,11 @@
 
 
 <template>
-  <VerticalLayout current-page="Branch">
+  <VerticalLayout current-page="Branches">
     <div class="row">
       <div class="col-12 ">
         <CardComponent>
-          <h6>Projects</h6>
+          <h6>Choose Project</h6>
           <select class="form-select px-3 my-3" id="project" v-model="project"
             @change="getBrancheByProjectId(project.id)">
             <option v-for="item in projectList" :key="item.id" :value="item">
@@ -17,34 +17,40 @@
       </div>
 
       <div class="col-12">
-        <CardComponent :card-title="`${project? project.name:''} Branch Details`">
+        <CardComponent :card-title="`${project ? project.name : ''} Branch Details`">
           <div class="table-responsive p-0">
 
-          
             <table v-if="project" class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary  text-xs font-weight-bolder opacity-7"> Branch Name</th>
-                  <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2"> View</th>
+                  <th class="text-uppercase text-dark  text-xs font-weight-bolder opacity-7"> Branch Name</th>
+                  <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-7 ps-2"> Action</th>
                   <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Commits</th> -->
                 </tr>
               </thead>
-              <tbody >
+              <tbody>
+                <tr v-if="branchListByProject.length == 0">
+                  <td colspan="3" class="text-center">
+                    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </td>
+                </tr>
                 <tr v-for="branch in branchListByProject" :key="branch.name">
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm font-weight-normal">{{ branch.name }}</h6>
+                        <h6 class="mb-0 text-sm ">{{ branch.name }}</h6>
                       </div>
                     </div>
                   </td>
                   <td>
                     <div class="d-flex px-2 py-1">
-                      <div class="d-flex flex-column justify-content-center" v-if="project">
+                      <div class="d-flex flex-column justify-content-center">
                         <span class="mb-0 me-3">
-                          <router-link class="text-primary"
-                            :to="{ name: 'viewBranch', params: { projectId: project.id, brancName: branch.name }, }">
-                            <i class="material-icons opacity-10 text-xl">info</i>
+                          <router-link class=" btn btn-primary"
+                            :to="{ name: 'viewBranch', params: { projectId: project?.id, brancName: branch?.name }, }">
+                            <i class="material-icons opacity-10 text-xl">visibility</i>
                           </router-link></span>
                       </div>
                     </div>
@@ -55,10 +61,10 @@
                         </ModalComponent>
                     </td> -->
                 </tr>
-              </tbody>              
+              </tbody>
             </table>
-            <div v-else> 
-                <h5 class="text-danger text-center font-weight-normal my-4">Choose a Project first to view Branch Details </h5>
+            <div v-else>
+              <h5 class="text-primary text-center   my-4">Choose a Project First to View Branch Details</h5>
             </div>
           </div>
         </CardComponent>
@@ -83,28 +89,6 @@ export default {
   data() {
     return {
       project: null,
-      employees: [
-        {
-          'name': 'name',
-          'email': 'email@email.com',
-          'phone': '0911124321',
-          'status': 'Active',
-          'date': '2022-12-12'
-        },
-        {
-          'name': 'name2',
-          'email': 'email@email.com',
-          'phone': '0911124321',
-          'status': 'Active',
-          'date': '2022-12-12'
-        }, {
-          'name': 'name3',
-          'email': 'email@email.com',
-          'phone': '0911124321',
-          'status': 'Active',
-          'date': '2022-12-12'
-        },
-      ]
     };
   },
 

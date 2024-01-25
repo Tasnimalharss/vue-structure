@@ -1,17 +1,17 @@
 
 
 <template>
-    <VerticalLayout>
+    <VerticalLayout  :current-page="`Branches / ${branch? branch.name :''} Branch Details`">
       <div class="row">
-        <div class="col-12" v-if="branch!=null">
-          <CardComponent :card-title="branch.name">
+        <div class="col-12" v-if="branch">
+          <CardComponent :card-title="`${branch.name} Branch Details`">
             <table class="table align-items-center mb-0">
                 <tbody>
                   <tr>
                     <td>
                       <div class="d-flex px-2 py-1">
                         <div class="d-flex flex-column justify-content-center">
-                          <h6 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">name</h6>
+                          <h6 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Branch Name</h6>
                         </div>
                       </div>
                     </td>
@@ -28,24 +28,7 @@
                     <td>
                       <div class="d-flex px-2 py-1">
                         <div class="d-flex flex-column justify-content-center">
-                          <h6 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">merged</h6>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex px-2 py-1">
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="mb-0 text-sm">{{ branch.merged }}</h6>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1">
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">merged</h6>
+                          <h6 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Is Branch Merged</h6>
                         </div>
                       </div>
                     </td>
@@ -62,7 +45,25 @@
                     <td>
                       <div class="d-flex px-2 py-1">
                         <div class="d-flex flex-column justify-content-center">
-                          <h6 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">developers Can Push</h6>
+                          <h6 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Is Branch Protected</h6>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 class="mb-0 text-sm">{{branch.protected }}</h6>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+
+
+                  <tr>
+                    <td>
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7"> Can Developer Push</h6>
                         </div>
                       </div>
                     </td>
@@ -79,7 +80,7 @@
                     <td>
                       <div class="d-flex px-2 py-1">
                         <div class="d-flex flex-column justify-content-center">
-                          <h6 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">developers Can Merge</h6>
+                          <h6 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7"> Can Developers Merge</h6>
                         </div>
                       </div>
                     </td>
@@ -96,7 +97,7 @@
                     <td>
                       <div class="d-flex px-2 py-1">
                         <div class="d-flex flex-column justify-content-center">
-                          <h6 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">default</h6>
+                          <h6 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Is Default Branch</h6>
                         </div>
                       </div>
                     </td>
@@ -109,7 +110,7 @@
                     </td>
                   </tr>
 
-                  <tr>
+                  <!-- <tr>
                     <td>
                       <div class="d-flex px-2 py-1">
                         <div class="d-flex flex-column justify-content-center">
@@ -124,7 +125,7 @@
                         </div>
                       </div>
                     </td>
-                  </tr>
+                  </tr> -->
 
                 </tbody>
               </table>

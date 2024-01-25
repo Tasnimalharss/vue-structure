@@ -1,3 +1,14 @@
+
+
+$primary:       #83bac5 !default;
+$primary-gradient:            #f5852a !default;
+$primary-gradient-state:      #E96E1C !default;
+$light-gradient:            #83bac5 !default;
+$light-gradient-state:      #f8ceac !default;
+$theme-colors: (
+  "primary": $primary,
+  "danger": #ff4136
+);
 @import "~material-dashboard/assets/scss/material-dashboard.scss";
 
-$primary:       #e9691e !default;
+
