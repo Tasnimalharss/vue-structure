@@ -42,4 +42,13 @@ export default [
       props: true,
       component: () => import('@/views/pages/Issue/IssueView'),
       },
+
+      {
+        path: '/issue/add',
+        name: 'addIssue',
+        props: true,
+        component: () => import('@/views/pages/Issue/IssueAdd'),
+        },
+
+      
   ]
