@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-12 ">
         <CardComponent>
-          <h6>Choose Project</h6>
+          <h6>Choose a Project</h6>
           <select class="form-select px-3 my-3" id="project" v-model="project" @change="getIssuesByProjectId(project.id)">
             <option v-for="item in projectList" :key="item.id" :value="item">
               {{ item.name }}
