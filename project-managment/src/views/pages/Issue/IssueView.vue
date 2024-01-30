@@ -35,12 +35,12 @@
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">{{ issue.author.name }}</h6>
+                        <h6 class="mb-0 text-sm">{{ issue.author?.name }}</h6>
                       </div>
                     </div>
                   </td>
                 </tr>
-
+<!-- 
                 <tr>
                   <td>
                     <div class="d-flex px-2 py-1">
@@ -60,9 +60,9 @@
                       </div>
                     </div>
                   </td>
-                </tr>
+                </tr> -->
 
-                <tr>
+                <!-- <tr>
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
@@ -77,7 +77,7 @@
                       </div>
                     </div>
                   </td>
-                </tr>
+                </tr> -->
 
                 <tr>
                   <td>
@@ -90,7 +90,7 @@
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">{{ issue.createdAt }}</h6>
+                        <h6 class="mb-0 text-sm">{{ dateTime(issue.createdAt)}}</h6>
                       </div>
                     </div>
                   </td>
@@ -124,7 +124,7 @@
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">{{ issue.closedBy }}</h6>
+                        <h6 class="mb-0 text-sm">{{ dateTime(issue.closedBy) }}</h6>
                       </div>
                     </div>
                   </td>
@@ -163,7 +163,7 @@
                     </div>
                   </td>
                 </tr>
-
+<!-- 
                 <tr>
                   <td>
                     <div class="d-flex px-2 py-1">
@@ -179,7 +179,7 @@
                       </div>
                     </div>
                   </td>
-                </tr>
+                </tr> -->
 
                 <tr>
                   <td>
@@ -209,7 +209,7 @@
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">{{ issue.dueDate }}</h6>
+                        <h6 class="mb-0 text-sm">{{ dateTime(issue.dueDate)}}</h6>
                       </div>
                     </div>
                   </td>
@@ -244,6 +244,8 @@
 import VerticalLayout from '@/views/layouts/VerticalLayout';
 import CardComponent from '@/components/elements/CardComponent';
 import { mapActions, mapGetters } from "vuex";
+import moment from 'moment';
+
 // import ModalComponent from '@/components/elements/ModalComponent';
 
 //import TableComponent from '@/components/tables/TableComponent';
@@ -273,7 +275,11 @@ export default {
     ...mapActions({
       GetIssueByIssueId: "issue/GetIssueByIssueId",
 
-    })
+    }),
+    dateTime(value) {
+      if(value)
+      return moment(value).format('YYYY/MM/DD HH:MM');
+    },
   },
   async created() {
     await this.GetIssueByIssueId(this.object)

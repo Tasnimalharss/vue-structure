@@ -8,7 +8,7 @@ const BaseApi = axios.create({
 
 const Api = function () {
   BaseApi.defaults.headers.common["Accept"] = `application/json`;
-  BaseApi.defaults.headers.common["Content-Type"] = `multipart/form-data`;
+  BaseApi.defaults.headers.common["Content-Type"] = `application/json`;
   BaseApi.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 
   return BaseApi;

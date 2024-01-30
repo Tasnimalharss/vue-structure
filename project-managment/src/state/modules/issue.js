@@ -54,6 +54,14 @@ export const actions = {
             }
         })
     },
+    async AddIssue({dispatch }, payload) {
+        await ISSUE.AddIssue(payload).then((response) => {
+            if(response.data.type === 1)
+          {
+            dispatch("application/redirect", "Issue", { root: true });
+          }
+        });
+      },
 };
 
 export const getters = {

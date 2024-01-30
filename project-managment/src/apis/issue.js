@@ -13,4 +13,8 @@ export default {
     async GetIssueByIssueId(object) {
         return await utils.sendRequest(Api().get(`${END_POINT}/GetIssueByIssueId?projectId=${object.projectId}&IssueId=${object.issueId}`));
     },
+    async AddIssue(payload) {
+        return await utils.sendRequest(Api().post(`${END_POINT}/AddIssue`, payload));
+
+    },
 };

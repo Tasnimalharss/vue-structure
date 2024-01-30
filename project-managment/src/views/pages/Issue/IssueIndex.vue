@@ -13,8 +13,20 @@
           </select>
         </CardComponent>
       </div>
-      <div class="col-12">
+      <div class="col-12" >
         <CardComponent :card-title="`${project ? project.name : ''} Issues List`">
+        <div class="d-flex justify-content-end">
+                <!-- <div>{{dateTime(item.createdAt) }}</div> -->
+                <button type="button" class="btn btn-outline-primary btn-sm mb-0 me-3" > 
+                     <router-link
+                          class="text-primary"
+                          :to="{
+                            name: 'addIssue'
+                          }"
+                        >
+                       Add Issue 
+                    </router-link></button>
+                    </div>
           <div class="table-responsive p-0">
             <table v-if="project" class="table align-items-center mb-0">
               <thead>
