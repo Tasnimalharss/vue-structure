@@ -4,7 +4,18 @@
   <VerticalLayout current-page="Issues">
     <div class="row">
       <div class="col-12 ">
+        <div class="d-flex justify-content-end mr-2">
+            <!-- <div>{{dateTime(item.createdAt) }}</div> -->
+            <button type="button" class="btn btn-primary">
+              <router-link class="text-white"  :to="{
+                name: 'addIssue'
+              }">
+                  <i class="material-icons opacity-10">add</i>
+                Add Issue
+              </router-link></button>
+          </div>
         <CardComponent>
+         
           <h6>Choose a Project</h6>
           <select class="form-select px-3 my-3" id="project" v-model="project" @change="getIssuesByProjectId(project.id)">
             <option v-for="item in projectList" :key="item.id" :value="item">
@@ -13,20 +24,8 @@
           </select>
         </CardComponent>
       </div>
-      <div class="col-12" >
+      <div class="col-12">
         <CardComponent :card-title="`${project ? project.name : ''} Issues List`">
-        <div class="d-flex justify-content-end">
-                <!-- <div>{{dateTime(item.createdAt) }}</div> -->
-                <button type="button" class="btn btn-outline-primary btn-sm mb-0 me-3" > 
-                     <router-link
-                          class="text-primary"
-                          :to="{
-                            name: 'addIssue'
-                          }"
-                        >
-                       Add Issue 
-                    </router-link></button>
-                    </div>
           <div class="table-responsive p-0">
             <table v-if="project" class="table align-items-center mb-0">
               <thead>

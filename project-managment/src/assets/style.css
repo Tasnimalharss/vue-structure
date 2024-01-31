@@ -18,6 +18,12 @@ h6 {
     border-color: #d2d6da !important;
 }
 
+
+
+.form-control {
+    border: 1px solid #d2d6da;
+    border-color: #d2d6da !important;
+}
 .nav-link,
 h6,
 h5 {
