@@ -2,31 +2,39 @@
     <VerticalLayout current-page="Projects">
       <div class="row" v-if="projectStatisticsList!=null">
           <div  class="col-lg-4 col-md-6" v-for="item in projectStatisticsList" :key="item.id">
-            <CardComponent :card-title="item.name">
-              <div class="row">
-                <div class="col-12 text-uppercase text-secondary text-s font-weight-bolder opacity-7">ISSUES:</div>
-                <!-- <div class="me-3 ">ALL {{ item.statistics.statistics.counts.all }}</div> -->
-                <div class="col-12">CLOSED {{ item.statistics.statistics.counts.closed }}</div>
-                <div class="col-12">OPENED {{ item.statistics.statistics.counts.opened }}</div>
-             </div>
-              <div class="d-flex justify-content-end">
-                <button type="button" class="btn btn-outline-primary btn-sm mb-0 me-3" > 
-                     <router-link
-                          class="text-primary"
-                          :to="{
-                            name: 'viewProject',
-                            params: { id: item.id },
-                          }"
-                        >
-                        Details 
-                    </router-link></button>
-               </div>
-            </CardComponent>
+            <CardComponent :card-title="item.name" class="my-card">
+  <div class="row">
+    <div class="col-12 text-uppercase text-secondary fw-bold opacity-7 mt-3">ISSUES:</div>
+    <div class="col-12">
+      <span class="text-danger">{{ item.statistics.statistics.counts.closed }} CLOSED</span>
+    </div>
+    <div class="col-12">
+      <span class="text-custom-success">{{ item.statistics.statistics.counts.opened }} OPENED</span>
+    </div>
+    <div class="col-12 text-uppercase text-secondary fw-bold opacity-7 mt-3">Default Branch:</div>
+    <div class="col-12">{{ item.defaultBranch }}</div>
+    <div class="col-12 text-uppercase text-secondary fw-bold opacity-7 mt-3">Created At:</div>
+    <div class="col-12">{{ dateTime(item.createdAt) }}</div>
+  </div>
+  <div class="d-flex justify-content-end mt-3">
+    <router-link
+      class="btn btn-primary btn-sm me-3 text-light"
+      :to="{
+        name: 'viewProject',
+        params: { id: item.id },
+      }"
+    >
+      Details
+    </router-link>
+  </div>
+</CardComponent>
         </div>
       </div>
     </VerticalLayout>
   </template>
-  
+ <style>.text-custom-success {
+  color: #28a745;
+}</style>
   <script>
   import { mapActions, mapGetters } from "vuex";
   import VerticalLayout from '@/views/layouts/VerticalLayout';
