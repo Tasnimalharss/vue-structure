@@ -11,4 +11,8 @@ export default {
     async getProjectById(id) {
         return await utils.sendRequest(Api().get(`${END_POINT}/GetProjectsByprojectId?projectId=${id}`));
     },
+
+    async getAllProjectIssueStatistics() {
+        return await utils.sendRequest(Api().get(`${END_POINT}/GetAllProjectIssueStatistics`));
+    },
 };

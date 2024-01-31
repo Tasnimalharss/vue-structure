@@ -108,7 +108,6 @@
             </table>
             <div v-else>
               <h5 class="text-primary text-center   my-4">Choose a Project First to View Issue List</h5>
-
             </div>
           </div>
         </CardComponent>
@@ -120,17 +119,11 @@
 <script>
 import VerticalLayout from '@/views/layouts/VerticalLayout';
 import CardComponent from '@/components/elements/CardComponent';
-// import ModalComponent from '@/components/elements/ModalComponent';
 import { mapActions, mapGetters } from "vuex";
 import moment from 'moment';
 
-//import TableComponent from '@/components/tables/TableComponent';
-
 export default {
-  components: {
-    VerticalLayout, CardComponent,
-    // ModalComponent
-  },
+  components: {VerticalLayout, CardComponent,},
   data() {
     return {
       project: null,
