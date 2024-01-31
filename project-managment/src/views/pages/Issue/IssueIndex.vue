@@ -4,6 +4,15 @@
   <VerticalLayout current-page="Issues">
     <div class="row">
       <div class="col-12 ">
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-outline-primary btn-sm mb-0 me-3" > 
+            <router-link
+                  class="text-primary"
+                  :to="{name: 'addIssue'}">
+              Add Issue 
+            </router-link>
+          </button>
+        </div>
         <CardComponent>
           <h6>Choose Project</h6>
           <select class="form-select px-3 my-3" id="project" v-model="project" @change="getIssuesByProjectId(project.id)">
@@ -15,18 +24,6 @@
       </div>
       <div class="col-12" >
         <CardComponent :card-title="`${project ? project.name : ''} Issues List`">
-        <div class="d-flex justify-content-end">
-                <!-- <div>{{dateTime(item.createdAt) }}</div> -->
-                <button type="button" class="btn btn-outline-primary btn-sm mb-0 me-3" > 
-                     <router-link
-                          class="text-primary"
-                          :to="{
-                            name: 'addIssue'
-                          }"
-                        >
-                       Add Issue 
-                    </router-link></button>
-                    </div>
           <div class="table-responsive p-0">
             <table v-if="project" class="table align-items-center mb-0">
               <thead>
@@ -109,7 +106,6 @@
             </table>
             <div v-else>
               <h5 class="text-primary text-center   my-4">Choose a Project First to View Issue List</h5>
-
             </div>
           </div>
         </CardComponent>
@@ -121,17 +117,11 @@
 <script>
 import VerticalLayout from '@/views/layouts/VerticalLayout';
 import CardComponent from '@/components/elements/CardComponent';
-// import ModalComponent from '@/components/elements/ModalComponent';
 import { mapActions, mapGetters } from "vuex";
 import moment from 'moment';
 
-//import TableComponent from '@/components/tables/TableComponent';
-
 export default {
-  components: {
-    VerticalLayout, CardComponent,
-    // ModalComponent
-  },
+  components: {VerticalLayout, CardComponent,},
   data() {
     return {
       project: null,

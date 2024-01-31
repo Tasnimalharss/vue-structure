@@ -2,7 +2,8 @@ import PROJECT from "../../apis/project";
 
 export const state = {
     projectList: [],
-    project:null
+    project:null,
+    projectStatisticsList: [],
 };
 
 export const mutations = {
@@ -11,7 +12,10 @@ export const mutations = {
     },
     SET_PROJECT(state, data) {
         state.project = data
-    }
+    },
+    SET_PROJECT_STATISTICS_LIST(state, data) {
+        state.projectStatisticsList = data
+    },
 };
 
 export const actions = {
@@ -38,6 +42,18 @@ export const actions = {
             }
         })
     },
+
+    async getAllProjectIssueStatistics({commit }) {
+        await PROJECT.getAllProjectIssueStatistics().then(response => {
+            if(response.data.type === 1)
+            {
+                commit('SET_PROJECT_STATISTICS_LIST', response.data.content)
+            }
+            else{
+                console.log("ERROR")
+            }
+        })
+    },
 };
 
 export const getters = {
@@ -46,5 +62,8 @@ export const getters = {
     },
     project: (state) => {
         return state.project
+    },
+    projectStatisticsList: (state) => {
+        return state.projectStatisticsList
     },
 };
