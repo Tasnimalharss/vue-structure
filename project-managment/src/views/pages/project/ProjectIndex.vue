@@ -1,12 +1,15 @@
-
-
 <template>
     <VerticalLayout current-page="Projects">
-      <div class="row" v-if="projectList!=null">
-          <div  class="col-lg-4 col-md-6" v-for="item in projectList" :key="item.id">
+      <div class="row" v-if="projectStatisticsList!=null">
+          <div  class="col-lg-4 col-md-6" v-for="item in projectStatisticsList" :key="item.id">
             <CardComponent :card-title="item.name">
+              <div class="row">
+                <div class="col-12 text-uppercase text-secondary text-s font-weight-bolder opacity-7">ISSUES:</div>
+                <!-- <div class="me-3 ">ALL {{ item.statistics.statistics.counts.all }}</div> -->
+                <div class="col-12">CLOSED {{ item.statistics.statistics.counts.closed }}</div>
+                <div class="col-12">OPENED {{ item.statistics.statistics.counts.opened }}</div>
+             </div>
               <div class="d-flex justify-content-end">
-                <!-- <div>{{dateTime(item.createdAt) }}</div> -->
                 <button type="button" class="btn btn-outline-primary btn-sm mb-0 me-3" > 
                      <router-link
                           class="text-primary"
@@ -16,9 +19,8 @@
                           }"
                         >
                         Details 
-
                     </router-link></button>
-                    </div>
+               </div>
             </CardComponent>
         </div>
       </div>
@@ -30,28 +32,24 @@
   import VerticalLayout from '@/views/layouts/VerticalLayout';
   import CardComponent from '@/components/elements/CardComponent';
   import moment from 'moment';
-  
-  //import TableComponent from '@/components/tables/TableComponent';
-  
+    
   export default {
-    components: {
-      VerticalLayout, CardComponent
-    },
+    components: {VerticalLayout, CardComponent},
     data() {
-      return {
-        test: "hello"
-      };
+      return { };
     },
   
     computed: {
       ...mapGetters({
         projectList  : "project/projectList",
+        projectStatisticsList  : "project/projectStatisticsList",
   
       }),
     },
     methods: {
       ...mapActions({
         getProjects: "project/getProjects",
+        getAllProjectIssueStatistics: "project/getAllProjectIssueStatistics",
   
       }),
       dateTime(value) {
@@ -60,7 +58,7 @@
     },
     async created() {
       await this.getProjects();
-      console.log(this.projectList)
+      await this.getAllProjectIssueStatistics();
     },
   };
   </script>  
