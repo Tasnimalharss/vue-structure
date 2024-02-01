@@ -20,6 +20,7 @@ export const mutations = {
 
 export const actions = {
     async getBranches({commit }) {
+        await commit("application/TOGGLE_LOADING", true, { root: true });
         await BRANCH.getBranches().then(response => {
             if(response.data.type === 1)
             {
@@ -29,8 +30,10 @@ export const actions = {
                 console.log("ERROR")
             }
         })
+        await commit("application/TOGGLE_LOADING", false, { root: true });
     },
     async getBrancheByProjectId({commit}, id) {
+        await commit("application/TOGGLE_LOADING", true, { root: true });
         await BRANCH.getBrancheByProjectId(id).then(response => {
             if(response.data.type === 1)
             {
@@ -41,8 +44,10 @@ export const actions = {
                 console.log("ERROR")
             }
         })
+        await commit("application/TOGGLE_LOADING", false, { root: true });
     },
     async getBranchByName({commit}, object) {
+        await commit("application/TOGGLE_LOADING", true, { root: true });
         await BRANCH.getBranchByName(object).then(response => {
             if(response.data.type === 1)
             {
@@ -53,6 +58,7 @@ export const actions = {
                 console.log("ERROR")
             }
         })
+        await commit("application/TOGGLE_LOADING", false, { root: true });
     },
 };
 

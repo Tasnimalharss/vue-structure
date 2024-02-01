@@ -2,6 +2,7 @@
 
 <template>
     <VerticalLayout current-page="Add Issue">
+      <BaseSkeleton :loading="loading">
       <div class="row">
         <div class="col-12" >
           <CardComponent card-title="Add Issue">
@@ -47,6 +48,7 @@
           </CardComponent>
         </div>
       </div>
+    </BaseSkeleton>
     </VerticalLayout>
   </template>
   
@@ -56,17 +58,19 @@
   // import ModalComponent from '@/components/elements/ModalComponent';
   import { mapActions, mapGetters } from "vuex";
   import moment from 'moment';
+  import BaseSkeleton from '@/components/Base/BaseSkeleton';
   
   //import TableComponent from '@/components/tables/TableComponent';
   
   export default {
     components: {
-      VerticalLayout, CardComponent,
+      VerticalLayout, CardComponent,BaseSkeleton,
       // ModalComponent
     },
     data() {
       return {
         projectId: null,
+        loading: true,
         form : 
         {
             projectId : null,
@@ -79,6 +83,7 @@
     computed: {
       ...mapGetters({
         projectList  : "project/projectList",
+        isLoading: "application/isLoading",
       }),
     },
     methods: {
@@ -99,6 +104,7 @@
     },
     async created() {
       await this.getProjects();
+      this.loading = false;
     },
   };
   </script>

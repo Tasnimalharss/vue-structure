@@ -2,6 +2,7 @@
 
 <template>
   <VerticalLayout>
+    <BaseSkeleton :loading="isLoading">
     <div class="row">
       <div class="col-12" v-if="issue!=null">
         <CardComponent :card-title="issue.title">
@@ -237,6 +238,7 @@
                     </CardComponent>
       </div>
     </div>
+  </BaseSkeleton>
   </VerticalLayout>
 </template>
 
@@ -245,6 +247,7 @@ import VerticalLayout from '@/views/layouts/VerticalLayout';
 import CardComponent from '@/components/elements/CardComponent';
 import { mapActions, mapGetters } from "vuex";
 import moment from 'moment';
+import BaseSkeleton from '@/components/Base/BaseSkeleton';
 
 // import ModalComponent from '@/components/elements/ModalComponent';
 
@@ -252,7 +255,7 @@ import moment from 'moment';
 
 export default {
   components: {
-    VerticalLayout, CardComponent, 
+    VerticalLayout, CardComponent, BaseSkeleton,
     // ModalComponent
   },
   data() {
@@ -268,6 +271,7 @@ export default {
   computed: {
     ...mapGetters({
       issue : "issue/issue",
+      isLoading: "application/isLoading",
 
     }),
   },

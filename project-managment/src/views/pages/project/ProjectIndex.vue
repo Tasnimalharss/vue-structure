@@ -1,5 +1,6 @@
 <template>
     <VerticalLayout current-page="Projects">
+      <BaseSkeleton :loading="isLoading">
       <div class="row" v-if="projectStatisticsList!=null">
           <div  class="col-lg-4 col-md-6" v-for="item in projectStatisticsList" :key="item.id">
             <CardComponent :card-title="item.name" class="my-card">
@@ -30,6 +31,7 @@
 </CardComponent>
         </div>
       </div>
+    </BaseSkeleton>
     </VerticalLayout>
   </template>
  <style>.text-custom-success {
@@ -40,9 +42,10 @@
   import VerticalLayout from '@/views/layouts/VerticalLayout';
   import CardComponent from '@/components/elements/CardComponent';
   import moment from 'moment';
+  import BaseSkeleton from '@/components/Base/BaseSkeleton';
     
   export default {
-    components: {VerticalLayout, CardComponent},
+    components: {VerticalLayout, CardComponent,BaseSkeleton},
     data() {
       return { };
     },
@@ -51,7 +54,7 @@
       ...mapGetters({
         projectList  : "project/projectList",
         projectStatisticsList  : "project/projectStatisticsList",
-  
+        isLoading: "application/isLoading",
       }),
     },
     methods: {

@@ -21,6 +21,7 @@ export const mutations = {
 
 export const actions = {
     async getIssues({commit }) {
+        await commit("application/TOGGLE_LOADING", true, { root: true });
         await ISSUE.getIssues().then(response => {
             if(response.data.type === 1)
             {
@@ -30,8 +31,10 @@ export const actions = {
                 console.log("ERROR")
             }
         })
+        await commit("application/TOGGLE_LOADING", false, { root: true });
     },
     async getIssuesByProjectId({commit }, projectId) {
+        await commit("application/TOGGLE_LOADING", true, { root: true });
         await ISSUE.getIssuesByProjectId(projectId).then(response => {
             if(response.data.type === 1)
             {
@@ -41,9 +44,11 @@ export const actions = {
                 console.log("ERROR")
             }
         })
+        await commit("application/TOGGLE_LOADING", false, { root: true });
     },
 
     async GetIssueByIssueId({commit }, object) {
+        await commit("application/TOGGLE_LOADING", true, { root: true });
         await ISSUE.GetIssueByIssueId(object).then(response => {
             if(response.data.type === 1)
             {
@@ -53,14 +58,20 @@ export const actions = {
                 console.log("ERROR")
             }
         })
+        await commit("application/TOGGLE_LOADING", false, { root: true });
     },
-    async AddIssue({dispatch }, payload) {
+    async AddIssue({commit,dispatch }, payload) {
+        await commit("application/TOGGLE_LOADING", true, { root: true });
         await ISSUE.AddIssue(payload).then((response) => {
             if(response.data.type === 1)
           {
             dispatch("application/redirect", "Issue", { root: true });
           }
+          else{
+            console.log("ERROR")
+        }
         });
+        await commit("application/TOGGLE_LOADING", false, { root: true });
       },
 };
 

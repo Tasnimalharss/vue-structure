@@ -20,6 +20,7 @@ export const mutations = {
 
 export const actions = {
     async getProjects({commit }) {
+        await commit("application/TOGGLE_LOADING", true, { root: true });
         await PROJECT.getProjects().then(response => {
             if(response.data.type === 1)
             {
@@ -29,9 +30,11 @@ export const actions = {
                 console.log("ERROR")
             }
         })
+        await commit("application/TOGGLE_LOADING", false, { root: true });
     },
 
     async getProjectById({commit}, id) {
+        await commit("application/TOGGLE_LOADING", true, { root: true });
         await PROJECT.getProjectById(id).then(response => {
             if(response.data.type === 1)
             {
@@ -41,9 +44,11 @@ export const actions = {
                 console.log("ERROR")
             }
         })
+        await commit("application/TOGGLE_LOADING", false, { root: true });
     },
 
     async getAllProjectIssueStatistics({commit }) {
+        await commit("application/TOGGLE_LOADING", true, { root: true });
         await PROJECT.getAllProjectIssueStatistics().then(response => {
             if(response.data.type === 1)
             {
@@ -53,6 +58,7 @@ export const actions = {
                 console.log("ERROR")
             }
         })
+        await commit("application/TOGGLE_LOADING", false, { root: true });
     },
 };
 
