@@ -2,6 +2,7 @@
 
 <template>
     <VerticalLayout current-page="Project">
+      <BaseSkeleton :loading="isLoading">
       <div class="row">
         <div class="col-12" v-if="project!=null">
           <CardComponent :card-title="project.name">
@@ -99,6 +100,8 @@
           </CardComponent>
         </div>
       </div>
+    </BaseSkeleton>
+
     </VerticalLayout>
   </template>
   
@@ -107,10 +110,11 @@
   import CardComponent from '@/components/elements/CardComponent';
   import { mapActions, mapGetters } from "vuex";
   import moment from 'moment';
+  import BaseSkeleton from '@/components/Base/BaseSkeleton';
   
   export default {
     components: {
-      VerticalLayout, CardComponent
+      VerticalLayout, CardComponent,BaseSkeleton
     },
     data() {
       return {
@@ -121,7 +125,7 @@
     computed: {
       ...mapGetters({
         project : "project/project",
-  
+        isLoading: "application/isLoading",
       }),
     },
     methods: {

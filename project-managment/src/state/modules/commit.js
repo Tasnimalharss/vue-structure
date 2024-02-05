@@ -12,6 +12,7 @@ export const mutations = {
 
 export const actions = {
     async getCommits({commit },object) {
+        await commit("application/TOGGLE_LOADING", true, { root: true });
         await COMMIT.getCommits(object).then(response => {
             if(response.data.type === 1)
             {
@@ -21,6 +22,7 @@ export const actions = {
                 console.log("ERROR")
             }
         })
+        await commit("application/TOGGLE_LOADING", false, { root: true });
     },
 };
 

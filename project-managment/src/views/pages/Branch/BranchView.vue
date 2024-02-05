@@ -2,6 +2,7 @@
 
 <template>
     <VerticalLayout  :current-page="`Branches / ${branch? branch.name :''} Branch Details`">
+      <BaseSkeleton :loading="isLoading">
       <div class="row">
         <div class="col-12" v-if="branch">
           <CardComponent :card-title="`${branch.name} Branch Details`">
@@ -132,6 +133,7 @@
                       </CardComponent>
         </div>
       </div>
+    </BaseSkeleton>
     </VerticalLayout>
   </template>
   
@@ -139,12 +141,13 @@
   import VerticalLayout from '@/views/layouts/VerticalLayout';
   import CardComponent from '@/components/elements/CardComponent';
   import { mapActions, mapGetters } from "vuex";
+  import BaseSkeleton from '@/components/Base/BaseSkeleton';
 
   //import TableComponent from '@/components/tables/TableComponent';
   
   export default {
     components: {
-      VerticalLayout, CardComponent
+      VerticalLayout, CardComponent,BaseSkeleton
     },
     data() {
       return {
@@ -159,6 +162,7 @@
     computed: {
       ...mapGetters({
         branch : "branch/branch",
+        isLoading: "application/isLoading",
   
       }),
     },

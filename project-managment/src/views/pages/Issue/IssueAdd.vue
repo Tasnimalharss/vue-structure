@@ -2,71 +2,68 @@
 
 <template>
   <VerticalLayout current-page="Add Issue">
-    <div class="row">
-      <div class="col-12">
-        <CardComponent card-title="Add Issue">
-          <form>
-            <div class="row">
-              <div class="col-1"><label for="projectId" class="form-label">Project</label></div>
-              <div class="col-10">
-                <div class="mb-3">
-                  <select class="form-select" id="projectId" v-model="form.projectId">
-                    <option v-for="item in projectList" :key="item.id" :value="item.id.toString()">
-                      {{ item.name }}
-                    </option>
-                  </select>
+    <BaseSkeleton :loading="loading">
+      <div class="row">
+        <div class="col-12">
+          <CardComponent card-title="Add Issue">
+            <form>
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="projectId" class="form-label">Project</label>
+                    <select class="form-select" id="projectId" v-model="form.projectId">
+                      <option v-for="item in projectList" :key="item.id" :value="item.id.toString()">
+                        {{ item.name }}
+                      </option>
+                    </select>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div class="row">
-              <div class="col-1"><label for="title" class="form-label">Title</label></div>
-              <div class="col-10">
-                <div class="mb-3">
-                  <input type="text" v-model="form.title" class="form-control" id="title">
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" v-model="form.title" class="form-control" id="title">
+                  </div>
                 </div>
               </div>
-            </div>
-
-
-            <div class="row">
-              <div class="col-1">
-                <label for="description" class="form-label">Description</label>
-              </div>
-              <div class="col-10">
-                <div class="mb-3">
-                  <input type="text" v-model="form.description" class="form-control" id="description">
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" v-model="form.description" class="form-control" id="description">
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="text-end me-5">
-              <button type="button" class="btn btn-primary mt-5 px-4" v-on:click="submit">Submit</button>
-            </div>
-          </form>
+              <button type="button" class="btn btn-primary" v-on:click="submit">Submit</button>
+            </form>
 
-        </CardComponent>
+          </CardComponent>
+        </div>
       </div>
-    </div>
+    </BaseSkeleton>
   </VerticalLayout>
 </template>
-  
+
 <script>
 import VerticalLayout from '@/views/layouts/VerticalLayout';
 import CardComponent from '@/components/elements/CardComponent';
 // import ModalComponent from '@/components/elements/ModalComponent';
 import { mapActions, mapGetters } from "vuex";
 import moment from 'moment';
+import BaseSkeleton from '@/components/Base/BaseSkeleton';
 
 //import TableComponent from '@/components/tables/TableComponent';
 
 export default {
   components: {
-    VerticalLayout, CardComponent,
+    VerticalLayout, CardComponent, BaseSkeleton,
     // ModalComponent
   },
   data() {
     return {
       projectId: null,
+      loading: true,
       form:
       {
         projectId: null,
@@ -79,6 +76,7 @@ export default {
   computed: {
     ...mapGetters({
       projectList: "project/projectList",
+      isLoading: "application/isLoading",
     }),
   },
   methods: {
@@ -99,8 +97,8 @@ export default {
   },
   async created() {
     await this.getProjects();
+    this.loading = false;
   },
 };
 </script>
-  
-  
+
