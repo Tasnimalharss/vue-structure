@@ -91,7 +91,6 @@ export default {
       return this.form.projectId != null && this.form.title != null && this.form.description != null;
     },
     async submit() {
-      console.log("hi")
       await this.AddIssue(this.form)
     },
   },

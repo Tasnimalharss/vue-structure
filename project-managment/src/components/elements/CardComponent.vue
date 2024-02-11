@@ -6,14 +6,15 @@
             </div>
         </div>
         <div class="card-body px-4 pb-2 ">
-            <slot/>
+            <slot />
         </div>
+            <slot name="footer"></slot>
     </div>
 </template>
 <script>
 export default {
-  props: {
-    cardTitle: String,
-  }
+    props: {
+        cardTitle: String,
+    }
 }
 </script>
