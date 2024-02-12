@@ -70,7 +70,7 @@
                   </div>
                 <div class="col-md-6 text-end">
                   <router-link class="btn btn-primary px-4" :to="{
-                    name: 'viewProject',
+                    name: 'ViewProject',
                     params: { id: item.id },
                   }">
                     Details

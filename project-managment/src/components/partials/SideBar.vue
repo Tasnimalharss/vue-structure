@@ -25,7 +25,7 @@
                     </router-link>    
                 </li>
                 <li class="nav-item">
-                    <router-link   active-class="active bg-gradient-primary" class="nav-link " to="/project">  
+                    <router-link   active-class="active bg-gradient-primary" class="nav-link " to="/projects">  
                         <div class=" text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">tungsten</i>
                         </div>
@@ -33,7 +33,7 @@
                     </router-link>    
                 </li>
                 <li class="nav-item">
-                    <router-link  active-class="active bg-gradient-primary"  class="nav-link " to="/branch">  
+                    <router-link  active-class="active bg-gradient-primary"  class="nav-link " to="/branches">  
                         <div class=" text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">account_tree</i>
                         </div>
@@ -41,7 +41,7 @@
                     </router-link>    
                 </li>
                 <li class="nav-item">
-                    <router-link  active-class="active bg-gradient-primary"  class="nav-link " to="/commit">  
+                    <router-link  active-class="active bg-gradient-primary"  class="nav-link " to="/commits">  
                         <div class=" text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">code</i>
                         </div>
@@ -49,7 +49,7 @@
                     </router-link>    
                 </li>
                 <li class="nav-item">
-                    <router-link  active-class="active bg-gradient-primary"  class="nav-link " to="/issue">  
+                    <router-link  active-class="active bg-gradient-primary"  class="nav-link " to="/issues">  
                         <div class=" text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">bug_report</i>
                         </div>

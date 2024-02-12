@@ -8,7 +8,7 @@
           <CardComponent card-title="Add Issue">
             <form>
               <div class="row">
-                <div class="col-6">
+                <div class="col-10">
                   <div class="mb-3">
                     <label for="projectId" class="form-label">Project</label>
                     <select class="form-select" id="projectId" v-model="form.projectId">
@@ -18,22 +18,25 @@
                     </select>
                   </div>
                 </div>
+                <div class="col-1"></div>
               </div>
               <div class="row">
-                <div class="col-6">
+                <div class="col-10">
                   <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" v-model="form.title" class="form-control" id="title">
                   </div>
                 </div>
+                <div class="col-1"></div>
               </div>
               <div class="row">
-                <div class="col-6">
+                <div class="col-10">
                   <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
                     <input type="text" v-model="form.description" class="form-control" id="description">
                   </div>
                 </div>
+                <div class="col-1"></div>
               </div>
               <button type="button" class="btn btn-primary" v-on:click="submit">Submit</button>
             </form>

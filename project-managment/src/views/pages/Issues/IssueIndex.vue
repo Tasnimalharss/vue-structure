@@ -8,7 +8,7 @@
             <!-- <div>{{dateTime(item.createdAt) }}</div> -->
             <button type="button" class="btn btn-primary">
               <router-link class="text-white"  :to="{
-                name: 'addIssue'
+                name: 'AddIssue'
               }">
                   <i class="material-icons opacity-10">add</i>
                 Add Issue
@@ -96,7 +96,7 @@
                         v-if="project.id && issueListByProjectId?.length >= 1">
                         <span class="mb-0 me-3">
                           <router-link class=" btn btn-primary"
-                            :to="{ name: 'viewIssue', params: { projectId: project.id, issueId: issue.iid }, }">
+                            :to="{ name: 'ViewIssue', params: { projectId: project.id, issueId: issue.iid }, }">
                             <i class="material-icons opacity-10 text-xl">visibility</i>
                           </router-link>
                         </span>
