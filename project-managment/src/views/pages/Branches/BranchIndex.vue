@@ -49,7 +49,7 @@
                       <div class="d-flex flex-column justify-content-center">
                         <span class="mb-0 me-3">
                           <router-link class=" btn btn-primary"
-                            :to="{ name: 'viewBranch', params: { projectId: project?.id, brancName: branch?.name }, }">
+                            :to="{ name: 'ViewBranch', params: { projectId: project?.id, brancName: branch?.name }, }">
                             <i class="material-icons opacity-10 text-xl">visibility</i>
                           </router-link></span>
                       </div>
