@@ -16,6 +16,8 @@
                         {{ item.name }}
                       </option>
                     </select>
+                    <ErrorMessage :errors="errors"  objectKey="ProjectId"/>
+
                   </div>
                 </div>
                 <div class="col-1"></div>
@@ -25,6 +27,7 @@
                   <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" v-model="form.title" class="form-control" id="title">
+                    <ErrorMessage :errors="errors"  objectKey="Title"/>
                   </div>
                 </div>
                 <div class="col-1"></div>
@@ -34,6 +37,8 @@
                   <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
                     <input type="text" v-model="form.description" class="form-control" id="description">
+                    <ErrorMessage :errors="errors"  objectKey="Description"/>
+
                   </div>
                 </div>
                 <div class="col-1"></div>
@@ -51,6 +56,8 @@
 <script>
 import VerticalLayout from '@/views/layouts/VerticalLayout';
 import CardComponent from '@/components/elements/CardComponent';
+import ErrorMessage from '@/components/elements/ErrorMessage';
+
 // import ModalComponent from '@/components/elements/ModalComponent';
 import { mapActions, mapGetters } from "vuex";
 import moment from 'moment';
@@ -60,11 +67,12 @@ import BaseSkeleton from '@/components/Base/BaseSkeleton';
 
 export default {
   components: {
-    VerticalLayout, CardComponent, BaseSkeleton,
+    VerticalLayout, CardComponent, BaseSkeleton,ErrorMessage
     // ModalComponent
   },
   data() {
     return {
+      errors:{},
       projectId: null,
       loading: true,
       form:
@@ -94,7 +102,11 @@ export default {
       return this.form.projectId != null && this.form.title != null && this.form.description != null;
     },
     async submit() {
-      await this.AddIssue(this.form)
+      try{
+        await this.AddIssue(this.form)
+      }catch(e){
+        this.errors=e.response.data.errors
+      }
     },
   },
   async created() {

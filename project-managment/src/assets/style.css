@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Cairo');
 
+
+html,
+body,
+main,
+#app {
+height: 100vh;
+}
+
 body,
 table {
     font-family: 'Cairo' !important;
@@ -35,3 +43,13 @@ h5 {
 .nav-link {
     font-size: 1rem !important;
 }
+
+.form-control:focus {
+    border-color: rgb(245, 133, 42);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(245, 133, 42, 0.6);
+  }
+
+  .btn-outline-primary:hover:not(.active){
+    background-color: #83bac5 !important;
+    color:white !important;
+  }

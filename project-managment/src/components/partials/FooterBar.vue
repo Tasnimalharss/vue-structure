@@ -40,8 +40,8 @@
 <style scoped>
 
 .footer{
-    position: fixed;
-    bottom: 0;
+    position: relative;
+    top: 0;
 }
 
 </style>
